@@ -42,6 +42,19 @@ npm install @types/jasmine --save-dev
 npm install karma-coverage-istanbul-reporter --save-dev
 npm install karma-spec-reporter --save-dev
 ng test --project=h01  --watch=false  --code-coverage
+#
+
+ng g s auth/auth --project=h01 --dry-run
+ng g s auth/auth --project=h01
+ng g s core/config/config --project=h01 --dry-run
+ng g s core/config/config --project=h01 
+ng g c core/components/nav-bar --project=h01 --dry-run
+ng g c core/components/nav-bar --project=h01 
+mkdir projects/h01/src/app/mock  "exclude": ["src/app/mock/**"],
+ng g m shared --project=h01 --dry-run
+ng g m shared --project=h01 
+
+ng serve --project=h01 --o
 
 # Multi
 
