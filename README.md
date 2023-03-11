@@ -15,6 +15,34 @@ ng new multi --minimal --directory=multiverse --interactive=false
  git add . 
  git commit -m "begin walking skeleton" or by VSCode after staged
  git push
+ git push --set-upstream origin feature/BS0001_US001_ED
+
+ creazione del prgetto h01
+ng g application h01  --style=scss --routing=true
+ng serve --project=h01  --o
+
+ng build --project=h01 --aot 
+ng serve --project=h01 --open --watch
+//@echo off
+danger  ng_module
+ cd projects 
+ tree /A /F > tree.txt 
+ cd ..
+ npm install json-server --save-dev
+ npm add @angular/cdk
+ ng add @angular/material
+ npm install bootstrap@4
+ npm install karma --save-dev
+ npm install karma-jasmine  --save-dev
+ npm install jasmine-core  --save-dev
+ npm install karma-chrome-launcher --save-dev
+npm install karma-jasmine-html-reporter --save-dev
+npm install karma-coverage --save-dev
+npm install @types/jasmine --save-dev
+npm install karma-coverage-istanbul-reporter --save-dev
+npm install karma-spec-reporter --save-dev
+ng test --project=h01  --watch=false  --code-coverage
+
 # Multi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
