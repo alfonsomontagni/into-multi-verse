@@ -8,6 +8,13 @@ ng new multi --minimal --directory=multiverse --interactive=false
  git remote add origin https://github.com/alfonsomontagni/into-multi-verse.git
  git add .
  git commit -m "Primo commit"
+
+ git checkout develop
+ git flow feature start BS0001_US001_ED (git flow feature finish BS0001_US001_ED)
+ git pull origin develop
+ git add . 
+ git commit -m "begin walking skeleton" or by VSCode after staged
+ git push
 # Multi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
