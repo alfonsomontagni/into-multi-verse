@@ -1,3 +1,13 @@
+# 11 March 2023
+
+ng new multi --minimal --directory=multiverse --interactive=false
+ cd .\multiverse\
+ git flow init
+ create new repository https://github.com/alfonsomontagni/into-multi-verse.git
+ 
+ git remote add origin https://github.com/alfonsomontagni/into-multi-verse.git
+ git add .
+ git commit -m "Primo commit"
 # Multi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
