@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Coverage
+coverage/
+
+# json-server
+/projects/h01/server
+
+# Appunti
+appunti.txt

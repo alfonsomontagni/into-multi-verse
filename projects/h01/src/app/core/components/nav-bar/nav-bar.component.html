@@ -1,0 +1,18 @@
+<div class="sticky-top bg-primary text-white" >
+    <div class="d-flex flex-row justify-content-start pt-3" >
+      <div class="px-2 pl-2" routerLink="home" routerLinkActive="text-dark">
+        <i class="fas fa-home fa-2x"></i>
+      </div> 
+      <div class="px-2 pl-2" routerLink="invoice-editor" routerLinkActive="text-dark">
+        <i class="fas fa-receipt fa-2x"></i>
+      </div>
+      <div class="px-2 pl-2" routerLink="profile" routerLinkActive="text-dark">
+        <i class="fas fa-user-circle fa-2x ml-1 mr-1"></i> 
+      </div>
+  
+      <div class="px-2 pl-2" (click)="logout()" >
+        <i class="fas fa-sign-out-alt fa-2x "></i>
+      </div>
+    </div>
+    <hr>
+  </div>
