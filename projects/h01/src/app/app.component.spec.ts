@@ -1,17 +1,26 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ConfigService } from './core/config/config.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let configServiceSpy: jasmine.SpyObj<ConfigService>;
+
+  beforeEach(() => {
+    configServiceSpy = jasmine.createSpyObj('ConfigService', ['getConfig']);
+
+    TestBed.configureTestingModule({
+      declarations: [AppComponent],
       imports: [
-        RouterTestingModule
+        RouterTestingModule.withRoutes([]),//Stub
       ],
-      declarations: [
-        AppComponent
-      ],
+      providers: [{ provide: ConfigService, useValue: configServiceSpy }]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
   it('should create the app', () => {
@@ -20,16 +29,21 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'h01'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('h01');
-  });
+  it('should display title and config data', () => {
+    const apiUrl = 'http://test-api-url';
+    const environment = 'test';
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    configServiceSpy.getConfig.and.returnValue({ apiUrl, environment });
+
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('h01 app is running!');
+
+    const titleElement = fixture.nativeElement.querySelector('h1');
+    expect(titleElement.textContent).toContain(component.title);
+
+    const apiUrlElement = fixture.nativeElement.querySelector('p:nth-child(2)');
+    expect(apiUrlElement.textContent).toContain(apiUrl);
+
+    const environmentElement = fixture.nativeElement.querySelector('p:nth-child(3)');
+    expect(environmentElement.textContent).toContain(environment);
   });
 });

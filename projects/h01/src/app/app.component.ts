@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigService } from './core/config/config.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'h01';
+  title = 'My App h01';
+  apiUrl: string;
+  environment: string;
+
+  constructor(private configService: ConfigService) { }
+
+  ngOnInit() {
+    const config = this.configService.getConfig();
+    this.apiUrl = config.apiUrl;
+    this.environment = config.environment;
+  }
 }

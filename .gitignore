@@ -43,3 +43,9 @@ Thumbs.db
 
 # Coverage
 coverage/
+
+# json-server
+/projects/h01/server
+
+# Appunti
+appunti.txt
