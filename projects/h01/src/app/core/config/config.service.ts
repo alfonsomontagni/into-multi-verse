@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConfigService {
 
-  private config: any;
+  private config: unknown;
 
   constructor(private http: HttpClient) { }
 
