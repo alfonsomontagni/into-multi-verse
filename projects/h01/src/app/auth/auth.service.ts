@@ -41,4 +41,25 @@ export class AuthService {
     tokens.push(token);
     localStorage.setItem('tokens', JSON.stringify(tokens));
   }
+
+  isAuthenticated(): boolean {
+    const tokens = JSON.parse(localStorage.getItem('tokens') || '[]');
+    return tokens.some((token: string) => {
+      const payload = JSON.parse(window.atob(token.split('.')[1]));
+      return payload.exp > Date.now() / 1000;
+    });
+  }
+
+  isAuthorized(roles: string[]): boolean {
+    const tokens = JSON.parse(localStorage.getItem('tokens') || '[]');
+    const token = tokens.find((t: string) => {
+      const payload = JSON.parse(window.atob(t.split('.')[1]));
+      return payload.exp > Date.now() / 1000;
+    });
+    if (token) {
+      const payload = JSON.parse(window.atob(token.split('.')[1]));
+      return roles.some((r: string) => payload.roles.includes(r));
+    }
+    return false;
+  }
 }

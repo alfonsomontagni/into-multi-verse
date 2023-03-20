@@ -102,3 +102,34 @@ npm i @egjs/hammerjs
 npm i propagating-hammerjs
 npm i angular2-multiselect-dropdown import css
 npm i xlsx
+
+ng g interceptor auth/auth --project=h01 --dry-run
+rename auth.interceptor.service
+ ng g service core/interceptors/error-interceptor --project=h01 --dry-run
+mkdir core interceptors
+ng g service core/interceptors/cache-interceptor --project=h01 --dry-run
+ng g c auth/no-auth --project=h01 --dry-run
+ng generate guard auth/roles --skipTests=true --project=h01 --dry-run
+ng generate guard auth/roles --skip-tests=true --project=h01 --dry-run
+ng g c auth/auth-login --project=h01  
+
+ng g service mock/mock-backend-interceptor --project=h01 --skip-tests=true --dry-run
+
+npm install eslint --save-dev //eslint@8.36.0
+npx eslint --init You can also run this command directly using 'npm init @eslint/config'.
+
+ npx eslint --init
+You can also run this command directly using 'npm init @eslint/config'.
+npx: installed 41 in 7.472s
+√ How would you like to use ESLint? · problems
+√ What type of modules does your project use? · esm
+√ Which framework does your project use? · none
+√ Does your project use TypeScript? · No / Yes
+√ Where does your code run? · browser
+√ What format do you want your config file to be in? · JavaScript
+The config that you've selected requires the following dependencies:
+
+@typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
+√ Would you like to install them now? · No / Yes
+√ Which package manager do you want to use? · npm
+Installing @typescript-eslint/eslint-plugin@latest, @typescript-eslint/parser@latest
