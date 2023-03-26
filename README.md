@@ -133,3 +133,35 @@ The config that you've selected requires the following dependencies:
 √ Would you like to install them now? · No / Yes
 √ Which package manager do you want to use? · npm
 Installing @typescript-eslint/eslint-plugin@latest, @typescript-eslint/parser@latest
+
+npm install @ngrx/store @ngrx/effects @ngrx/store-devtools --save
+npm i @ngrx/router-store
+npm i json-server-auth
+npm i @types/node --save-dev
+
+//bootstrap da togliere ma per esempio la tengo
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+css 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+scss
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
